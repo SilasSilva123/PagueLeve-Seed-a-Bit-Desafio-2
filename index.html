@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PagueLeve: organize seus gastos sem planilha, entenda suas dívidas e veja quando você vai ficar livre delas.">
+    <title>PagueLeve — Controle financeiro sem complicação</title>
+
+    <!-- Estilos da página (a estilização será feita por outro integrante) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- =========================================================
+         HEADER — logo e menu de navegação
+         Baseado no componente "Navbar" do Figma.
+         Os links levam às seções desta mesma página (âncoras).
+         ========================================================= -->
+    <header class="cabecalho">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo "Logo/PagueLeve" exportado do Figma (pasta assets/) -->
+        <a href="#inicio" class="logo">PagueLeve</a>
+
+        <nav class="menu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#registrar">Registrar</a></li>
+                <li><a href="#historico">Histórico</a></li>
+                <li><a href="#dividas">Dívidas</a></li>
+                <li><a href="#metas">Metas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =========================================================
+             INÍCIO — tela "Home Page (MVP)" do Figma (parte "Hero")
+             ========================================================= -->
+        <section id="inicio" class="secao-inicio">
+            <h1>Apertou? Nós te ajudamos.</h1>
+            <p>
+                Organize seus gastos sem planilha, entenda suas dívidas e veja quando
+                você vai ficar livre delas. Tudo em linguagem simples.
+            </p>
+
+            <div class="botoes-inicio">
+                <a href="#dividas" class="botao botao-primario">Simular minha dívida</a>
+                <a href="#registrar" class="botao botao-secundario">Registrar um gasto</a>
+            </div>
+
+            <!-- Contadores de uso: os números do Figma NÃO são dados reais.
+                 Mantidos apenas como placeholders demonstrativos. -->
+            <div class="contadores">
+                <div class="contador">
+                    <p class="contador-rotulo">Já usaram nossa calculadora</p>
+                    <p class="contador-valor">— <small>(valor demonstrativo)</small></p>
+                </div>
+                <div class="contador">
+                    <p class="contador-rotulo">Já simulados em negociações e dívidas</p>
+                    <p class="contador-valor">— <small>(valor demonstrativo)</small></p>
+                </div>
+            </div>
+
+            <!-- TODO (CSS/assets): adicionar a "Ilustração hero" (cofrinho) exportada do Figma -->
+        </section>
+
+        <!-- =========================================================
+             SOBRE A SOLUÇÃO — exigida pelo desafio (problema, ODS, público-alvo)
+             Textos retirados da "Página de Entrega (Grupo 1)".
+             ========================================================= -->
+        <section id="sobre" class="secao-sobre">
+            <h2>Sobre a solução</h2>
+
+            <article class="sobre-bloco">
+                <h3>O problema</h3>
+                <p>
+                    Muitas pessoas querem sair das dívidas, mas acham finanças um bicho de
+                    sete cabeças e desistem de ferramentas complicadas.
+                </p>
+                <p>
+                    O PagueLeve ajuda pessoas endividadas a organizar o dinheiro do dia a dia
+                    de forma simples, sem planilhas e sem termos técnicos: registra gastos em
+                    poucos toques, com categorias visuais, mostra um histórico claro de para
+                    onde o dinheiro está indo e oferece um simulador de quitação de dívidas.
+                </p>
+            </article>
+
+            <article class="sobre-bloco">
+                <h3>ODS impactada</h3>
+                <p>
+                    <strong>ODS 8 — Trabalho Decente e Crescimento Econômico.</strong>
+                    Promove educação e inclusão financeira, ajudando trabalhadores a sair do
+                    endividamento, ganhar estabilidade e ter condições de crescer profissionalmente.
+                </p>
+                <p>
+                    Como efeito secundário, também contribui com a ODS 3 — Saúde e Bem-Estar,
+                    ao reduzir o estresse causado pelas dívidas, e com a ODS 4 — Educação de
+                    Qualidade, pela educação financeira básica.
+                </p>
+            </article>
+
+            <article class="sobre-bloco">
+                <h3>Para quem é</h3>
+                <p>
+                    Pessoas endividadas e com pouco conhecimento em finanças, como trabalhadores
+                    informais, microempreendedores, jovens no primeiro emprego e aposentados, que
+                    usam o celular no dia a dia e não têm o hábito de controlar os gastos.
+                </p>
+            </article>
+
+            <!-- "Como funciona" — seção "Simples como deve ser" do Figma (versão mobile) -->
+            <div class="como-funciona">
+                <h3>Simples como deve ser</h3>
+                <p>Três passos para sair do vermelho, sem planilhas chatas.</p>
+
+                <ol class="passos">
+                    <li class="passo">
+                        <h4>Registre seus gastos</h4>
+                        <p>Anote o valor, escolha a categoria e pronto. Sem planilha e sem termos difíceis.</p>
+                    </li>
+                    <li class="passo">
+                        <h4>Simule sua dívida</h4>
+                        <p>Descubra quanto pode economizar negociando e em quantas parcelas cabe no seu bolso.</p>
+                    </li>
+                    <li class="passo">
+                        <h4>A luz no fim do túnel</h4>
+                        <p>Acompanhe seus gastos por categoria e saiba quando vai ficar livre das dívidas.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             RELATOS — seção "Relatos" do Figma
+             Histórias ILUSTRATIVAS (não são depoimentos reais).
+             ========================================================= -->
+        <section id="relatos" class="secao-relatos">
+            <h2>Relatos</h2>
+            <p class="aviso-ilustrativo">Histórias ilustrativas de quem começou a organizar o dinheiro.</p>
+
+            <div class="cards-relato">
+                <blockquote class="card-relato">
+                    <p>“Agora sei o que é da casa e o que é do negócio.”</p>
+                    <footer>Lúcia — <span>Microempreendedora</span></footer>
+                </blockquote>
+                <blockquote class="card-relato">
+                    <p>“Anoto as vendas da praia em dois toques.”</p>
+                    <footer>Josué — <span>Vendedor ambulante</span></footer>
+                </blockquote>
+                <blockquote class="card-relato">
+                    <p>“Finalmente sei quando o consignado acaba.”</p>
+                    <footer>Seu Antônio — <span>Aposentado</span></footer>
+                </blockquote>
+                <blockquote class="card-relato">
+                    <p>“Juntei meus primeiros R$ 100 com as metas.”</p>
+                    <footer>Kauã — <span>Jovem aprendiz</span></footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             REGISTRAR — tela "Tela de Registros (MVP)" do Figma
+             Formulário de lançamentos (apenas estrutura).
+             TODO (POST): o envio será implementado em js/cadastro.js
+             ========================================================= -->
+        <section id="registrar" class="secao-registrar">
+            <h2>Registrar lançamento</h2>
+            <p>Gasto ou dívida: valor, categoria e data. Sem planilha.</p>
+
+            <form id="form-lancamento" class="formulario">
+
+                <!-- Tipo: o Figma mostra botões "Gasto / Dívida".
+                     Mantidos os 4 tipos do modelo de dados oficial. -->
+                <div class="campo">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="gasto">Gasto</option>
+                        <option value="entrada">Entrada</option>
+                        <option value="poupança">Poupança</option>
+                        <option value="dívida">Dívida</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="valor">Valor (R$)</label>
+                    <input type="number" id="valor" name="valor" min="0" step="0.01" placeholder="0,00" required>
+                </div>
+
+                <div class="campo">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <!-- Categoria: o Figma mostra botões com ícones.
+                     TODO (equipe): confirmar o formato do texto enviado à API
+                     (minúsculo "alimentação" x "Alimentação" do quadro "Como fica salvo").
+                     TODO (equipe): o Histórico do Figma mostra a categoria "Dívida",
+                     que não está na lista do modelo de dados. Decidir se entra. -->
+                <div class="campo">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="alimentação">Alimentação</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="moradia">Moradia</option>
+                        <option value="saúde">Saúde</option>
+                        <option value="lazer">Lazer</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="descricao">Descrição (opcional)</label>
+                    <input type="text" id="descricao" name="descricao" maxlength="100" placeholder="Ex.: Mercado do mês">
+                </div>
+
+                <div class="botoes-formulario">
+                    <button type="submit" class="botao botao-primario">Salvar lançamento</button>
+                    <button type="reset" class="botao botao-secundario">Cancelar</button>
+                </div>
+            </form>
+
+            <!-- Quadro "Como fica salvo" do Figma: mostra apenas os campos da coleção,
+                 sem valores fictícios. -->
+            <aside class="como-fica-salvo">
+                <h3>Como fica salvo</h3>
+                <p>Cada lançamento vira um registro na coleção "lancamentos".</p>
+                <ul>
+                    <li><code>valor</code></li>
+                    <li><code>categoria</code></li>
+                    <li><code>data</code></li>
+                    <li><code>tipo</code></li>
+                    <li><code>descricao</code></li>
+                </ul>
+            </aside>
+        </section>
+
+        <!-- =========================================================
+             HISTÓRICO — tela "Histórico (MVP)" do Figma
+             TODO (GET): as linhas serão criadas em js/lista.js
+             ========================================================= -->
+        <section id="historico" class="secao-historico">
+            <h2>Histórico de lançamentos</h2>
+            <p>Consulte tudo o que você registrou.</p>
+
+            <!-- TODO (bônus): filtros do Figma (Categoria, Período, Tipo),
+                 feitos em JavaScript sobre a lista que a API devolve. -->
+
+            <table class="tabela-lancamentos">
+                <thead>
+                    <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Valor</th>
+                        <!-- TODO (bônus): coluna para o botão de apagar (DELETE) -->
+                    </tr>
+                </thead>
+                <tbody id="lista-lancamentos">
+                    <!-- Mensagem provisória: será substituída pelos lançamentos vindos da API -->
+                    <tr>
+                        <td colspan="5">Nenhum lançamento carregado ainda.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- TODO (integração): quantidade de lançamentos e totais de gastos e dívidas,
+                 calculados na tela com JavaScript. -->
+            <p id="totais-historico" class="totais"></p>
+        </section>
+
+        <!-- =========================================================
+             DÍVIDAS — tela "Simulador de dívidas (MVP)" do Figma
+             Simulação feita na tela, sem enviar nada à API.
+             TODO (integração): cálculos da simulação em js/app.js
+             ========================================================= -->
+        <section id="dividas" class="secao-dividas">
+            <h2>Simulador de dívidas</h2>
+            <p>Veja a luz no fim do túnel: o cálculo é feito na tela, sem enviar nada.</p>
+
+            <form id="form-simulador" class="formulario">
+
+                <fieldset class="sua-divida">
+                    <legend>Sua dívida</legend>
+
+                    <div class="campo">
+                        <label for="sim-valor">Valor da dívida (R$)</label>
+                        <input type="number" id="sim-valor" name="sim-valor" min="0" step="0.01">
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-modalidade">Modalidade</label>
+                        <select id="sim-modalidade" name="sim-modalidade">
+                            <option value="cheque especial">Cheque especial</option>
+                            <!-- TODO (equipe): o Figma mostra só esta opção. Completar a lista. -->
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-atraso">Tempo de atraso</label>
+                        <select id="sim-atraso" name="sim-atraso" aria-describedby="ajuda-atraso">
+                            <option value="91-120">Entre 91 e 120 dias</option>
+                            <!-- TODO (equipe): o Figma mostra só esta opção. Completar a lista
+                                 e a regra de desconto mínimo de cada faixa. -->
+                        </select>
+                        <small id="ajuda-atraso">Define o desconto mínimo: 40% para 91 a 120 dias</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-fgts">Uso do FGTS (opcional, R$)</label>
+                        <input type="number" id="sim-fgts" name="sim-fgts" min="0" step="0.01" aria-describedby="ajuda-fgts">
+                        <small id="ajuda-fgts">Máximo de R$ 1.000, sem passar do saldo com desconto</small>
+                    </div>
+                </fieldset>
+
+                <fieldset class="sua-negociacao">
+                    <legend>Sua negociação</legend>
+
+                    <div class="campo">
+                        <label for="sim-desconto">Desconto aplicado</label>
+                        <input type="range" id="sim-desconto" name="sim-desconto" min="40" max="99" step="1" value="40">
+                        <small>mín. 40% · máx. 99%</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-parcelas">Parcelas</label>
+                        <input type="range" id="sim-parcelas" name="sim-parcelas" min="12" max="48" step="1" value="48">
+                        <small>mín. 12 · máx. 48</small>
+                    </div>
+
+                    <!-- TODO (integração): desconto, saldo com desconto, FGTS usado,
+                         total a pagar, valor da parcela e economia, calculados na tela. -->
+                    <div id="resultado-simulador" class="resultado-simulador"></div>
+
+                    <button type="submit" class="botao botao-primario">Simular negociação</button>
+                    <p class="aviso-ilustrativo">Simulação ilustrativa. As condições reais dependem de cada credor.</p>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- =========================================================
+             METAS — tela "Metas (MVP)" do Figma ("Planejamento do mês")
+             Resumo dos gastos do mês por categoria (obrigatório no MVP Contract).
+             TODO (integração): somas e porcentagens em js/app.js
+             ========================================================= -->
+        <section id="metas" class="secao-metas">
+            <h2>Planejamento do mês</h2>
+            <p>Somamos seus gastos por categoria para você enxergar para onde o dinheiro vai.</p>
+
+            <div class="painel-categorias">
+                <h3>Gastos por categoria</h3>
+                <!-- TODO (integração): total do mês e uma barra por categoria
+                     (moradia, alimentação, transporte, saúde, lazer). -->
+                <div id="resumo-categorias"></div>
+            </div>
+
+            <div class="painel-distribuicao">
+                <h3>Distribuição do mês</h3>
+                <!-- TODO (integração): gráfico de rosca com o gasto total e a legenda por categoria. -->
+                <div id="grafico-distribuicao"></div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             CHAMADA FINAL — componente "Faixa de chamada" do Figma
+             ========================================================= -->
+        <section class="secao-chamada">
+            <h2>Comece hoje. É grátis e leva um minuto.</h2>
+            <p>Simule sua dívida ou registre seu primeiro gasto sem criar conta.</p>
+            <a href="#dividas" class="botao botao-amarelo">Simular minha dívida</a>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER — componente "Rodapé do site" do Figma
+         ========================================================= -->
+    <footer class="rodape">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo exportado do Figma -->
+        <p class="logo">PagueLeve</p>
+        <p>Simulações ilustrativas. As condições reais dependem de cada credor.</p>
+    </footer>
+
+    <!-- Scripts (por enquanto contêm apenas comentários TODO) -->
+    <script src="js/lista.js"></script>
+    <script src="js/cadastro.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
