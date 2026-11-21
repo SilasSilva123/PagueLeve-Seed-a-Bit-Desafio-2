@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar lançamento — PagueLeve</title>
+
+    <!-- Estilos da página (a estilização será feita por outro integrante) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- =========================================================
+         HEADER — logo e navegação (igual nas 5 páginas)
+         Figma: "Navbar" (desktop), "Topo" e "Tab bar" (mobile).
+         ========================================================= -->
+    <header class="cabecalho">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo "Logo/PagueLeve" exportado do Figma (pasta assets/) -->
+        <a href="index.html" class="logo">PagueLeve</a>
+
+        <!-- TODO (equipe): no Figma mobile, o topo mostra um ícone "ⓘ" à direita.
+             A função dele não está definida no protótipo. -->
+
+        <!-- Navegação entre as 5 páginas. O mesmo menu serve aos dois formatos:
+             - desktop: menu horizontal no topo;
+             - mobile: barra fixa na parte de baixo da tela.
+             O link da página aberta tem aria-current="page" (item ativo no Figma).
+             TODO (CSS): posicionar o menu conforme o tamanho da tela.
+             TODO (CSS): no mobile, o Figma usa a ordem Início, Histórico, Registrar,
+             Dívidas, Metas, com um ícone em cada item (home, lista, mais, calculadora, meta). -->
+        <nav class="menu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="registrar.html" aria-current="page">Registrar</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dividas.html">Dívidas</a></li>
+                <li><a href="metas.html">Metas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =========================================================
+             REGISTRAR — telas "Tela de Registros (MVP)" (desktop) e
+             "Registrar lançamento" (mobile) do Figma
+             Formulário de lançamentos (apenas estrutura).
+             TODO (POST): o envio será implementado em js/cadastro.js
+             ========================================================= -->
+        <section id="registrar" class="secao-registrar">
+            <h1>Registrar lançamento</h1>
+            <p>Gasto ou dívida: valor, categoria e data. Sem planilha.</p>
+
+            <form id="form-lancamento" class="formulario">
+
+                <!-- Tipo: no Figma é um seletor de botões ("Gasto / Dívida").
+                     Mantidos os 4 tipos do modelo de dados oficial, como botões de opção (radio),
+                     para o CSS conseguir reproduzir o visual do Figma.
+                     TODO (POST): o id "tipo" fica no grupo. Para ler o tipo escolhido, use o botão marcado:
+                     document.querySelector('input[name="tipo"]:checked').value -->
+                <fieldset id="tipo" class="campo grupo-opcoes controle-tipo">
+                    <legend>Tipo</legend>
+                    <label class="opcao">
+                        <input type="radio" name="tipo" value="gasto" checked required>
+                        <span>Gasto</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="tipo" value="entrada">
+                        <span>Entrada</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="tipo" value="poupança">
+                        <span>Poupança</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="tipo" value="dívida">
+                        <span>Dívida</span>
+                    </label>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="valor">Valor (R$)</label>
+                    <input type="number" id="valor" name="valor" min="0" step="0.01" placeholder="0,00" required>
+                </div>
+
+                <div class="campo">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <!-- Categoria: no Figma são botões com ícones ("Categorias").
+                     TODO (CSS/assets): ícones do Figma para alimentacao, transporte, home (moradia), saude e lazer.
+                     TODO (POST): o id "categoria" fica no grupo. Para ler a categoria escolhida, use o botão marcado:
+                     document.querySelector('input[name="categoria"]:checked').value
+                     TODO (equipe): confirmar o formato do texto enviado à API
+                     (minúsculo "alimentação" x "Alimentação" do quadro "Como fica salvo").
+                     TODO (equipe): o Histórico do Figma mostra a categoria "Dívida",
+                     que não está na lista do modelo de dados. Decidir se entra. -->
+                <fieldset id="categoria" class="campo grupo-opcoes categorias">
+                    <legend>Categoria</legend>
+                    <label class="opcao">
+                        <input type="radio" name="categoria" value="alimentação" checked required>
+                        <span>Alimentação</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="categoria" value="transporte">
+                        <span>Transporte</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="categoria" value="moradia">
+                        <span>Moradia</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="categoria" value="saúde">
+                        <span>Saúde</span>
+                    </label>
+                    <label class="opcao">
+                        <input type="radio" name="categoria" value="lazer">
+                        <span>Lazer</span>
+                    </label>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="descricao">Descrição (opcional)</label>
+                    <input type="text" id="descricao" name="descricao" maxlength="100" placeholder="Ex.: Mercado do mês">
+                </div>
+
+                <div class="botoes-formulario">
+                    <button type="submit" class="botao botao-primario">Salvar lançamento</button>
+                    <!-- Só no desktop: o Figma mobile mostra apenas "Salvar lançamento". -->
+                    <button type="reset" class="botao botao-secundario apenas-desktop">Cancelar</button>
+                </div>
+            </form>
+
+            <!-- Quadro "Como fica salvo" do Figma: mostra apenas os campos da coleção,
+                 sem valores fictícios. Só no desktop: o Figma mobile não mostra este quadro. -->
+            <aside class="como-fica-salvo apenas-desktop">
+                <h2>Como fica salvo</h2>
+                <p>Cada lançamento vira um registro na coleção "lancamentos".</p>
+                <ul>
+                    <li><code>valor</code></li>
+                    <li><code>categoria</code></li>
+                    <li><code>data</code></li>
+                    <li><code>tipo</code></li>
+                    <li><code>descricao</code></li>
+                </ul>
+            </aside>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER — componente "Rodapé do site" do Figma (igual nas 5 páginas)
+         ========================================================= -->
+    <footer class="rodape">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo exportado do Figma -->
+        <p class="logo">PagueLeve</p>
+        <p>Simulações ilustrativas. As condições reais dependem de cada credor.</p>
+    </footer>
+
+    <!-- Scripts desta página: cadastro.js (envio do formulário) e app.js (integração geral).
+         Por enquanto contêm apenas comentários TODO. -->
+    <script src="js/cadastro.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
