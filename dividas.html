@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de dívidas — PagueLeve</title>
+
+    <!-- Estilos da página (a estilização será feita por outro integrante) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- =========================================================
+         HEADER — logo e navegação (igual nas 5 páginas)
+         Figma: "Navbar" (desktop), "Topo" e "Tab bar" (mobile).
+         ========================================================= -->
+    <header class="cabecalho">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo "Logo/PagueLeve" exportado do Figma (pasta assets/) -->
+        <a href="index.html" class="logo">PagueLeve</a>
+
+        <!-- TODO (equipe): no Figma mobile, o topo mostra um ícone "ⓘ" à direita.
+             A função dele não está definida no protótipo. -->
+
+        <!-- Navegação entre as 5 páginas. O mesmo menu serve aos dois formatos:
+             - desktop: menu horizontal no topo;
+             - mobile: barra fixa na parte de baixo da tela.
+             O link da página aberta tem aria-current="page" (item ativo no Figma).
+             TODO (CSS): posicionar o menu conforme o tamanho da tela.
+             TODO (CSS): no mobile, o Figma usa a ordem Início, Histórico, Registrar,
+             Dívidas, Metas, com um ícone em cada item (home, lista, mais, calculadora, meta). -->
+        <nav class="menu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="registrar.html">Registrar</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dividas.html" aria-current="page">Dívidas</a></li>
+                <li><a href="metas.html">Metas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =========================================================
+             DÍVIDAS — telas "Simulador de dívidas (MVP)" (desktop) e
+             "Simulador · 1 Dados" + "Simulador · 2 Resultado" (mobile) do Figma.
+             Simulação feita na tela, sem enviar nada à API.
+             - Desktop: as duas etapas aparecem lado a lado.
+             - Mobile: uma etapa por vez (1. dados → 2. resultado).
+             TODO (integração): cálculos e troca de etapas em js/app.js
+             ========================================================= -->
+        <section id="dividas" class="secao-dividas">
+            <h1>Simulador de dívidas</h1>
+            <p>Veja a luz no fim do túnel: o cálculo é feito na tela, sem enviar nada.</p>
+
+            <form id="form-simulador" class="formulario">
+
+                <!-- ETAPA 1 — "Sua dívida" (no mobile: tela "Simulador · 1 Dados") -->
+                <fieldset id="etapa-dados" class="simulador-etapa sua-divida">
+                    <legend>Sua dívida</legend>
+
+                    <div class="campo">
+                        <label for="sim-valor">Valor da dívida (R$)</label>
+                        <input type="number" id="sim-valor" name="sim-valor" min="0" step="0.01">
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-modalidade">Modalidade</label>
+                        <select id="sim-modalidade" name="sim-modalidade">
+                            <option value="cheque especial">Cheque especial</option>
+                            <!-- TODO (equipe): o Figma mostra só esta opção. Completar a lista. -->
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-atraso">Tempo de atraso</label>
+                        <select id="sim-atraso" name="sim-atraso" aria-describedby="ajuda-atraso">
+                            <option value="91-120">Entre 91 e 120 dias</option>
+                            <!-- TODO (equipe): o Figma mostra só esta opção. Completar a lista
+                                 e a regra de desconto mínimo de cada faixa. -->
+                        </select>
+                        <small id="ajuda-atraso">Define o desconto mínimo: 40% para 91 a 120 dias</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-fgts">Uso do FGTS (opcional, R$)</label>
+                        <input type="number" id="sim-fgts" name="sim-fgts" min="0" step="0.01" aria-describedby="ajuda-fgts">
+                        <small id="ajuda-fgts">Máximo de R$ 1.000, sem passar do saldo com desconto</small>
+                    </div>
+
+                    <!-- Só no mobile: avança para a etapa 2.
+                         TODO (integração): ao clicar, mostrar a etapa 2 (sem recarregar a página). -->
+                    <button type="button" id="botao-continuar" class="botao botao-primario apenas-mobile">Continuar</button>
+                </fieldset>
+
+                <!-- ETAPA 2 — "Sua negociação" (no mobile: tela "Simulador · 2 Resultado") -->
+                <fieldset id="etapa-negociacao" class="simulador-etapa sua-negociacao">
+                    <legend>Sua negociação</legend>
+                    <p class="apenas-mobile">Ajuste o desconto e as parcelas.</p>
+
+                    <!-- Só no mobile: resumo dos dados digitados na etapa 1.
+                         TODO (integração): preencher com valor, modalidade e tempo de atraso. -->
+                    <p id="resumo-dados-simulador" class="apenas-mobile"></p>
+
+                    <div class="campo">
+                        <label for="sim-desconto">Desconto aplicado</label>
+                        <!-- Valor atual do controle (no Figma, à direita do nome).
+                             TODO (integração): atualizar quando o controle for movido. -->
+                        <output id="sim-desconto-valor" for="sim-desconto">40%</output>
+                        <input type="range" id="sim-desconto" name="sim-desconto" min="40" max="99" step="1" value="40">
+                        <small>mín. 40% · máx. 99%</small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="sim-parcelas">Parcelas</label>
+                        <!-- Valor atual do controle (no Figma, à direita do nome).
+                             TODO (integração): atualizar quando o controle for movido. -->
+                        <output id="sim-parcelas-valor" for="sim-parcelas">48x</output>
+                        <input type="range" id="sim-parcelas" name="sim-parcelas" min="12" max="48" step="1" value="48">
+                        <small>mín. 12 · máx. 48</small>
+                    </div>
+
+                    <!-- TODO (integração): desconto, saldo com desconto, FGTS usado,
+                         total a pagar, valor da parcela e economia, calculados na tela. -->
+                    <div id="resultado-simulador" class="resultado-simulador"></div>
+
+                    <!-- Só no desktop: botão "Simular negociação". -->
+                    <button type="submit" class="botao botao-primario apenas-desktop">Simular negociação</button>
+                    <!-- Só no mobile: volta para a etapa 1.
+                         TODO (integração): ao clicar, mostrar novamente a etapa 1. -->
+                    <button type="button" id="botao-simular-de-novo" class="botao botao-primario apenas-mobile">Simular de novo</button>
+                    <p class="aviso-ilustrativo">Simulação ilustrativa. As condições reais dependem de cada credor.</p>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER — componente "Rodapé do site" do Figma (igual nas 5 páginas)
+         ========================================================= -->
+    <footer class="rodape">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo exportado do Figma -->
+        <p class="logo">PagueLeve</p>
+        <p>Simulações ilustrativas. As condições reais dependem de cada credor.</p>
+    </footer>
+
+    <!-- Script desta página: app.js (simulador, calculado só na tela, sem a API).
+         Por enquanto contém apenas comentários TODO. -->
+    <script src="js/app.js"></script>
+</body>
+</html>

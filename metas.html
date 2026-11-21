@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento do mês — PagueLeve</title>
+
+    <!-- Estilos da página (a estilização será feita por outro integrante) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- =========================================================
+         HEADER — logo e navegação (igual nas 5 páginas)
+         Figma: "Navbar" (desktop), "Topo" e "Tab bar" (mobile).
+         ========================================================= -->
+    <header class="cabecalho">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo "Logo/PagueLeve" exportado do Figma (pasta assets/) -->
+        <a href="index.html" class="logo">PagueLeve</a>
+
+        <!-- TODO (equipe): no Figma mobile, o topo mostra um ícone "ⓘ" à direita.
+             A função dele não está definida no protótipo. -->
+
+        <!-- Navegação entre as 5 páginas. O mesmo menu serve aos dois formatos:
+             - desktop: menu horizontal no topo;
+             - mobile: barra fixa na parte de baixo da tela.
+             O link da página aberta tem aria-current="page" (item ativo no Figma).
+             TODO (CSS): posicionar o menu conforme o tamanho da tela.
+             TODO (CSS): no mobile, o Figma usa a ordem Início, Histórico, Registrar,
+             Dívidas, Metas, com um ícone em cada item (home, lista, mais, calculadora, meta). -->
+        <nav class="menu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="registrar.html">Registrar</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dividas.html">Dívidas</a></li>
+                <li><a href="metas.html" aria-current="page">Metas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =========================================================
+             METAS — telas "Metas (MVP)" (desktop) e "Metas" (mobile) do Figma
+             ("Planejamento do mês")
+             Resumo dos gastos do mês por categoria (obrigatório no MVP Contract).
+             TODO (integração): somas e porcentagens em js/app.js
+             ========================================================= -->
+        <section id="metas" class="secao-metas">
+            <h1>Planejamento do mês</h1>
+            <p>Somamos seus gastos por categoria para você enxergar para onde o dinheiro vai.</p>
+
+            <div class="painel-categorias">
+                <h2>Gastos por categoria</h2>
+
+                <!-- TODO (integração): total gasto no mês, somado na tela.
+                     No desktop, o Figma mostra "Total R$ ..." ao lado do título;
+                     no mobile, um cartão de destaque com o total do mês. -->
+                <p id="total-mes"></p>
+
+                <!-- TODO (integração): uma barra por categoria
+                     (moradia, alimentação, transporte, saúde, lazer). -->
+                <div id="resumo-categorias"></div>
+
+                <!-- TODO (integração): dica simples sobre a categoria com mais gastos
+                     (planejamento "simulado", conforme o MVP Contract). -->
+                <p id="dica-planejamento"></p>
+            </div>
+
+            <!-- Só no desktop: o Figma mobile não mostra este gráfico. -->
+            <div class="painel-distribuicao apenas-desktop">
+                <h2>Distribuição do mês</h2>
+                <!-- TODO (integração): gráfico de rosca com o gasto total e a legenda por categoria. -->
+                <div id="grafico-distribuicao"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER — componente "Rodapé do site" do Figma (igual nas 5 páginas)
+         ========================================================= -->
+    <footer class="rodape">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo exportado do Figma -->
+        <p class="logo">PagueLeve</p>
+        <p>Simulações ilustrativas. As condições reais dependem de cada credor.</p>
+    </footer>
+
+    <!-- Scripts desta página: lista.js (busca dos lançamentos com GET) e app.js (somas por categoria).
+         Por enquanto contêm apenas comentários TODO. -->
+    <script src="js/lista.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

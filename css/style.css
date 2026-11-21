@@ -1,0 +1,20 @@
+/*
+ * style.css — PagueLeve (usado pelas 5 páginas)
+ *
+ * TODO (integrante responsável pelo CSS):
+ * - Implementar a estilização seguindo o protótipo de alta fidelidade do Figma
+ *   (cores, fontes, botões, campos, cards, tabela e navegação).
+ * - Implementar a responsividade (versão desktop e versão mobile do Figma).
+ *
+ * Pontos já preparados no HTML (classes e ids prontos para serem usados aqui):
+ * - Navegação (.menu, igual nas 5 páginas): no desktop, menu horizontal no topo;
+ *   no mobile, barra fixa na parte de baixo da tela. O link da página aberta
+ *   tem aria-current="page".
+ * - .apenas-mobile e .apenas-desktop: elementos que, no Figma, aparecem só em
+ *   um dos formatos.
+ * - registrar.html: Tipo e Categoria são botões de opção (radio) dentro de
+ *   .grupo-opcoes, para ficarem com o visual de botões do Figma.
+ * - historico.html: tabela no desktop; cartões no mobile.
+ * - dividas.html: no mobile, o simulador mostra uma etapa por vez
+ *   (#etapa-dados e #etapa-negociacao).
+ */

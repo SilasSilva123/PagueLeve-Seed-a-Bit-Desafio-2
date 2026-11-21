@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PagueLeve: organize seus gastos sem planilha, entenda suas dívidas e veja quando você vai ficar livre delas.">
+    <title>PagueLeve — Controle financeiro sem complicação</title>
+
+    <!-- Estilos da página (a estilização será feita por outro integrante) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- =========================================================
+         HEADER — logo e navegação (igual nas 5 páginas)
+         Figma: "Navbar" (desktop), "Topo" e "Tab bar" (mobile).
+         ========================================================= -->
+    <header class="cabecalho">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo "Logo/PagueLeve" exportado do Figma (pasta assets/) -->
+        <a href="index.html" class="logo">PagueLeve</a>
+
+        <!-- TODO (equipe): no Figma mobile, o topo mostra um ícone "ⓘ" à direita.
+             A função dele não está definida no protótipo. -->
+
+        <!-- Navegação entre as 5 páginas. O mesmo menu serve aos dois formatos:
+             - desktop: menu horizontal no topo;
+             - mobile: barra fixa na parte de baixo da tela.
+             O link da página aberta tem aria-current="page" (item ativo no Figma).
+             TODO (CSS): posicionar o menu conforme o tamanho da tela.
+             TODO (CSS): no mobile, o Figma usa a ordem Início, Histórico, Registrar,
+             Dívidas, Metas, com um ícone em cada item (home, lista, mais, calculadora, meta). -->
+        <nav class="menu" aria-label="Navegação principal">
+            <ul>
+                <li><a href="index.html" aria-current="page">Início</a></li>
+                <li><a href="registrar.html">Registrar</a></li>
+                <li><a href="historico.html">Histórico</a></li>
+                <li><a href="dividas.html">Dívidas</a></li>
+                <li><a href="metas.html">Metas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- =========================================================
+             INÍCIO — tela "Home Page (MVP)" do Figma (parte "Hero")
+             ========================================================= -->
+        <section id="inicio" class="secao-inicio">
+            <h1>Apertou? Nós te ajudamos.</h1>
+            <p>
+                Organize seus gastos sem planilha, entenda suas dívidas e veja quando
+                você vai ficar livre delas. Tudo em linguagem simples.
+            </p>
+
+            <div class="botoes-inicio">
+                <a href="dividas.html" class="botao botao-primario">Simular minha dívida</a>
+                <a href="registrar.html" class="botao botao-secundario">Registrar um gasto</a>
+            </div>
+
+            <!-- Contadores de uso: os números do Figma NÃO são dados reais.
+                 Mantidos apenas como placeholders demonstrativos. -->
+            <div class="contadores">
+                <div class="contador">
+                    <p class="contador-rotulo">Já usaram nossa calculadora</p>
+                    <p class="contador-valor">— <small>(valor demonstrativo)</small></p>
+                </div>
+                <div class="contador">
+                    <p class="contador-rotulo">Já simulados em negociações e dívidas</p>
+                    <p class="contador-valor">— <small>(valor demonstrativo)</small></p>
+                </div>
+            </div>
+
+            <!-- TODO (CSS/assets): adicionar a "Ilustração hero" (cofrinho) exportada do Figma -->
+        </section>
+
+        <!-- =========================================================
+             SOBRE A SOLUÇÃO — exigida pelo desafio (problema, ODS, público-alvo)
+             Textos retirados da "Página de Entrega (Grupo 1)".
+             ========================================================= -->
+        <section id="sobre" class="secao-sobre">
+            <h2>Sobre a solução</h2>
+
+            <article class="sobre-bloco">
+                <h3>O problema</h3>
+                <p>
+                    Muitas pessoas querem sair das dívidas, mas acham finanças um bicho de
+                    sete cabeças e desistem de ferramentas complicadas.
+                </p>
+                <p>
+                    O PagueLeve ajuda pessoas endividadas a organizar o dinheiro do dia a dia
+                    de forma simples, sem planilhas e sem termos técnicos: registra gastos em
+                    poucos toques, com categorias visuais, mostra um histórico claro de para
+                    onde o dinheiro está indo e oferece um simulador de quitação de dívidas.
+                </p>
+            </article>
+
+            <article class="sobre-bloco">
+                <h3>ODS impactada</h3>
+                <p>
+                    <strong>ODS 8 — Trabalho Decente e Crescimento Econômico.</strong>
+                    Promove educação e inclusão financeira, ajudando trabalhadores a sair do
+                    endividamento, ganhar estabilidade e ter condições de crescer profissionalmente.
+                </p>
+                <p>
+                    Como efeito secundário, também contribui com a ODS 3 — Saúde e Bem-Estar,
+                    ao reduzir o estresse causado pelas dívidas, e com a ODS 4 — Educação de
+                    Qualidade, pela educação financeira básica.
+                </p>
+            </article>
+
+            <article class="sobre-bloco">
+                <h3>Para quem é</h3>
+                <p>
+                    Pessoas endividadas e com pouco conhecimento em finanças, como trabalhadores
+                    informais, microempreendedores, jovens no primeiro emprego e aposentados, que
+                    usam o celular no dia a dia e não têm o hábito de controlar os gastos.
+                </p>
+            </article>
+        </section>
+
+        <!-- =========================================================
+             COMO FUNCIONA — seção "Simples como deve ser" do Figma (versão mobile)
+             ========================================================= -->
+        <section id="como-funciona" class="secao-como-funciona">
+            <h2>Simples como deve ser</h2>
+            <p>Três passos para sair do vermelho, sem planilhas chatas.</p>
+
+            <ol class="passos">
+                <li class="passo">
+                    <h3>Registre seus gastos</h3>
+                    <p>Anote o valor, escolha a categoria e pronto. Sem planilha e sem termos difíceis.</p>
+                </li>
+                <li class="passo">
+                    <h3>Simule sua dívida</h3>
+                    <p>Descubra quanto pode economizar negociando e em quantas parcelas cabe no seu bolso.</p>
+                </li>
+                <li class="passo">
+                    <h3>A luz no fim do túnel</h3>
+                    <p>Acompanhe seus gastos por categoria e saiba quando vai ficar livre das dívidas.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- =========================================================
+             RELATOS — seção "Relatos" do Figma
+             Histórias ILUSTRATIVAS (não são depoimentos reais).
+             ========================================================= -->
+        <section id="relatos" class="secao-relatos">
+            <h2>Relatos</h2>
+            <p class="aviso-ilustrativo">Histórias ilustrativas de quem começou a organizar o dinheiro.</p>
+
+            <div class="cards-relato">
+                <blockquote class="card-relato">
+                    <p>“Agora sei o que é da casa e o que é do negócio.”</p>
+                    <footer>Lúcia — <span>Microempreendedora</span></footer>
+                </blockquote>
+                <blockquote class="card-relato">
+                    <p>“Anoto as vendas da praia em dois toques.”</p>
+                    <footer>Josué — <span>Vendedor ambulante</span></footer>
+                </blockquote>
+                <blockquote class="card-relato">
+                    <p>“Finalmente sei quando o consignado acaba.”</p>
+                    <footer>Seu Antônio — <span>Aposentado</span></footer>
+                </blockquote>
+                <blockquote class="card-relato">
+                    <p>“Juntei meus primeiros R$ 100 com as metas.”</p>
+                    <footer>Kauã — <span>Jovem aprendiz</span></footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             CHAMADA FINAL — componente "Faixa de chamada" do Figma
+             (aparece só na página inicial)
+             ========================================================= -->
+        <section class="secao-chamada">
+            <h2>Comece hoje. É grátis e leva um minuto.</h2>
+            <p>Simule sua dívida ou registre seu primeiro gasto sem criar conta.</p>
+            <a href="dividas.html" class="botao botao-amarelo">Simular minha dívida</a>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER — componente "Rodapé do site" do Figma (igual nas 5 páginas)
+         ========================================================= -->
+    <footer class="rodape">
+        <!-- TODO (CSS/assets): substituir o texto pelo logo exportado do Figma -->
+        <p class="logo">PagueLeve</p>
+        <p>Simulações ilustrativas. As condições reais dependem de cada credor.</p>
+    </footer>
+
+    <!-- Esta página não carrega JavaScript: por enquanto, não há nada dinâmico nela. -->
+</body>
+</html>
