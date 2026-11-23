@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="160" viewBox="0 0 200 160" role="img" aria-label="Cofrinho recebendo uma moeda">
+  <ellipse cx="100" cy="90" rx="70" ry="50" fill="#8FDCB4"/>
+  <ellipse cx="165" cy="95" rx="18" ry="14" fill="#2FA875"/>
+  <circle cx="160" cy="95" r="2.5" fill="#102B22"/><circle cx="170" cy="95" r="2.5" fill="#102B22"/>
+  <path d="M60 50L70 28L90 44Z" fill="#2FA875"/>
+  <rect x="55" y="125" width="20" height="25" rx="8" fill="#2FA875"/>
+  <rect x="115" y="125" width="20" height="25" rx="8" fill="#2FA875"/>
+  <rect x="85" y="48" width="36" height="6" rx="3" fill="#0E7A54"/>
+  <circle cx="138" cy="78" r="5" fill="#102B22"/>
+  <circle cx="100" cy="22" r="16" fill="#FFC94A"/>
+  <circle cx="100" cy="22" r="11" fill="none" stroke="#DDA720" stroke-width="3"/>
+  <path d="M30 90q-14-8-4-22" stroke="#2FA875" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
