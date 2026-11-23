@@ -1436,7 +1436,7 @@ input:invalid:not(:placeholder-shown):not([type='radio']):not([type='range']) {
     position: absolute;
     z-index: 2;
     top: 74px;
-    right: max(5%, calc((100vw - 1200px) / 2 + 80px));
+    right: 30px;
     display: block;
     width: min(32vw, 380px);
     height: auto;
