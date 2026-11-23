@@ -1436,7 +1436,8 @@ input:invalid:not(:placeholder-shown):not([type='radio']):not([type='range']) {
     position: absolute;
     z-index: 2;
     top: 74px;
-    right: 30px;
+    right: max(5%, calc((100vw - 1200px) / 2 + 80px));
+    transform: translateX(30px);
     display: block;
     width: min(32vw, 380px);
     height: auto;
@@ -1449,5 +1450,6 @@ input:invalid:not(:placeholder-shown):not([type='radio']):not([type='range']) {
         right: auto;
         width: min(100%, 270px);
         margin: 22px auto 0;
+		transform: none;
     }
 }
