@@ -12,24 +12,9 @@
 </head>
 <body>
 
-    <!-- =========================================================
-         HEADER — logo e navegação (igual nas 5 páginas)
-         Figma: "Navbar" (desktop), "Topo" e "Tab bar" (mobile).
-         ========================================================= -->
     <header class="cabecalho">
-        <!-- TODO (CSS/assets): substituir o texto pelo logo "Logo/PagueLeve" exportado do Figma (pasta assets/) -->
-        <a href="index.html" class="logo">PagueLeve</a>
+        <a href="index.html" class="logo">Pague<span>Leve</span></a>
 
-        <!-- TODO (equipe): no Figma mobile, o topo mostra um ícone "ⓘ" à direita.
-             A função dele não está definida no protótipo. -->
-
-        <!-- Navegação entre as 5 páginas. O mesmo menu serve aos dois formatos:
-             - desktop: menu horizontal no topo;
-             - mobile: barra fixa na parte de baixo da tela.
-             O link da página aberta tem aria-current="page" (item ativo no Figma).
-             TODO (CSS): posicionar o menu conforme o tamanho da tela.
-             TODO (CSS): no mobile, o Figma usa a ordem Início, Histórico, Registrar,
-             Dívidas, Metas, com um ícone em cada item (home, lista, mais, calculadora, meta). -->
         <nav class="menu" aria-label="Navegação principal">
             <ul>
                 <li><a href="index.html" aria-current="page">Início</a></li>
@@ -43,11 +28,8 @@
 
     <main>
 
-        <!-- =========================================================
-             INÍCIO — tela "Home Page (MVP)" do Figma (parte "Hero")
-             ========================================================= -->
         <section id="inicio" class="secao-inicio">
-            <h1>Apertou? Nós te ajudamos.</h1>
+            <h1>Apertou? <span>Nós te ajudamos.</span></h1>
             <p>
                 Organize seus gastos sem planilha, entenda suas dívidas e veja quando
                 você vai ficar livre delas. Tudo em linguagem simples.
@@ -58,8 +40,6 @@
                 <a href="registrar.html" class="botao botao-secundario">Registrar um gasto</a>
             </div>
 
-            <!-- Contadores de uso: os números do Figma NÃO são dados reais.
-                 Mantidos apenas como placeholders demonstrativos. -->
             <div class="contadores">
                 <div class="contador">
                     <p class="contador-rotulo">Já usaram nossa calculadora</p>
@@ -71,13 +51,26 @@
                 </div>
             </div>
 
-            <!-- TODO (CSS/assets): adicionar a "Ilustração hero" (cofrinho) exportada do Figma -->
+            <div class="hero__ilustracao" aria-hidden="true">
+                <img class="hero__cofrinho" src="assets/img/cofrinho.svg" alt="">
+                <span class="flutuante flutuante--desconto">
+                    <svg class="icone" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l6 6 4-4 8 8M21 11v6h-6"/></svg>
+                    − 40% na dívida
+                </span>
+                <span class="flutuante flutuante--ok">
+                    <svg class="icone" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+                    Dívida negociada
+                </span>
+                <span class="flutuante flutuante--parcelas">
+                    <svg class="icone" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9a2.5 2 0 0 0-2.5-1.5c-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2a2.5 2 0 0 1-2.5-1.5M12 6v1.5M12 16.5V18"/></svg>
+                    48x de R$ 45,83
+                </span>
+                <span class="moeda-solta moeda-solta--a"></span>
+                <span class="moeda-solta moeda-solta--b"></span>
+            </div>
+            
         </section>
 
-        <!-- =========================================================
-             SOBRE A SOLUÇÃO — exigida pelo desafio (problema, ODS, público-alvo)
-             Textos retirados da "Página de Entrega (Grupo 1)".
-             ========================================================= -->
         <section id="sobre" class="secao-sobre">
             <h2>Sobre a solução</h2>
 
@@ -119,9 +112,6 @@
             </article>
         </section>
 
-        <!-- =========================================================
-             COMO FUNCIONA — seção "Simples como deve ser" do Figma (versão mobile)
-             ========================================================= -->
         <section id="como-funciona" class="secao-como-funciona">
             <h2>Simples como deve ser</h2>
             <p>Três passos para sair do vermelho, sem planilhas chatas.</p>
@@ -142,10 +132,6 @@
             </ol>
         </section>
 
-        <!-- =========================================================
-             RELATOS — seção "Relatos" do Figma
-             Histórias ILUSTRATIVAS (não são depoimentos reais).
-             ========================================================= -->
         <section id="relatos" class="secao-relatos">
             <h2>Relatos</h2>
             <p class="aviso-ilustrativo">Histórias ilustrativas de quem começou a organizar o dinheiro.</p>
@@ -170,10 +156,6 @@
             </div>
         </section>
 
-        <!-- =========================================================
-             CHAMADA FINAL — componente "Faixa de chamada" do Figma
-             (aparece só na página inicial)
-             ========================================================= -->
         <section class="secao-chamada">
             <h2>Comece hoje. É grátis e leva um minuto.</h2>
             <p>Simule sua dívida ou registre seu primeiro gasto sem criar conta.</p>
@@ -182,15 +164,10 @@
 
     </main>
 
-    <!-- =========================================================
-         FOOTER — componente "Rodapé do site" do Figma (igual nas 5 páginas)
-         ========================================================= -->
     <footer class="rodape">
-        <!-- TODO (CSS/assets): substituir o texto pelo logo exportado do Figma -->
-        <p class="logo">PagueLeve</p>
+        <p class="logo">Pague<span>Leve</span></p>
         <p>Simulações ilustrativas. As condições reais dependem de cada credor.</p>
     </footer>
 
-    <!-- Esta página não carrega JavaScript: por enquanto, não há nada dinâmico nela. -->
 </body>
 </html>
