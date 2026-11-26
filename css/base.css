@@ -1,0 +1,597 @@
+/* =========================================================
+   PagueLeve · base.css
+   Tokens do guia de design (Figma), reset, tipografia e componentes
+   usados em TODAS as páginas: cabeçalho, menu, botões, formulários,
+   cartões e rodapé. Estilos de cada página ficam em paginas.css.
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+	/* marca */
+	--verde: #0e7a54;
+	--verde-medio: #2fa875;
+	--verde-claro: #8fdcb4;
+	--verde-palido: #eaf5ef;
+	--verde-escuro: #0d2b20;
+	--amarelo: #ffc94a;
+	--azul: #063472;
+	/* estados dos botões (guia de design) */
+	--verde-hover: #0b6644;
+	--verde-pressionado: #085238;
+	--amarelo-hover: #f5b92e;
+	--amarelo-pressionado: #e3a41b;
+	/* neutras */
+	--fundo: #fafafa;
+	--texto: #2b2b2b;
+	--texto-suave: #66756e;
+	--branco: #ffffff;
+	--borda: #e0e8e3;
+	/* semânticas */
+	--erro: #f13232;
+	--erro-fundo: #fdecec;
+	--sucesso: #4bb002;
+	--sucesso-fundo: #eaf6e0;
+	--aviso-fundo: #fff6cc;
+	/* forma */
+	--sombra: 0 7px 20px rgb(23 55 39 / 7%);
+	--raio: 22px;
+	--largura: 1200px;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	min-width: 320px;
+	margin: 0;
+	color: var(--texto);
+	background: var(--fundo);
+	font: 400 16px/1.5 'Nunito', system-ui, sans-serif;
+}
+
+a {
+	color: inherit;
+}
+
+button, input, select, textarea {
+	font: inherit;
+}
+
+button, select {
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: not-allowed;
+	opacity: .55;
+}
+
+:focus-visible {
+	outline: 3px solid var(--amarelo);
+	outline-offset: 3px;
+}
+
+img, svg {
+	max-width: 100%;
+}
+
+h1, h2, h3, h4, p {
+	margin-top: 0;
+}
+
+h1, h2, h3 {
+	line-height: 1.22;
+}
+
+h1 {
+	margin-bottom: 4px;
+	font-size: clamp(27px, 3vw, 34px);
+	font-weight: 800;
+}
+
+h2 {
+	margin-bottom: 15px;
+	font-size: 25px;
+	font-weight: 800;
+}
+
+h3 {
+	margin-bottom: 9px;
+	font-size: 21px;
+	font-weight: 800;
+}
+
+p {
+	margin-bottom: 12px;
+}
+
+small {
+	color: var(--texto-suave);
+}
+
+/* ---------- Cabeçalho e logo (72 px no desktop, 52 px no celular) ---------- */
+.cabecalho {
+	position: sticky;
+	top: 0;
+	z-index: 40;
+	height: 72px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 18px;
+	padding: 0 max(24px, calc((100vw - var(--largura)) / 2));
+	background: var(--branco);
+	border-bottom: 1px solid var(--borda);
+}
+
+.logo {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	margin: 0;
+	color: var(--verde-escuro);
+	text-decoration: none;
+	font-size: 23px;
+	font-weight: 800;
+	letter-spacing: -.8px;
+	white-space: nowrap;
+}
+
+/* "Leve" em verde: <a class="logo">Pague<span>Leve</span></a> */
+.logo span {
+	color: var(--verde);
+}
+
+/* Marca oficial (barras + moeda), a mesma do favicon. */
+.logo::before {
+	content: '';
+	width: 28px;
+	height: 32px;
+	flex-shrink: 0;
+	margin-right: 9px;
+	background: url('../assets/img/favicon.svg') center / contain no-repeat;
+}
+
+/* ---------- Menu: horizontal no desktop; barra fixa embaixo no celular ---------- */
+.menu ul {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.menu a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 38px;
+	padding: 9px 16px;
+	border-radius: 100px;
+	color: var(--texto);
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 700;
+	transition: background-color .15s ease, color .15s ease;
+}
+
+.menu a:hover {
+	background: var(--fundo);
+}
+
+.menu a[aria-current='page'] {
+	background: var(--verde-palido);
+	color: var(--verde);
+}
+
+/* ---------- Botões (estados do guia: padrão, hover, pressionado, desabilitado) ---------- */
+.botao {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 25px;
+	min-height: 50px;
+	border: 2px solid transparent;
+	border-radius: 11px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: 800;
+	font-size: 15px;
+	line-height: 1.2;
+	transition: background-color .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.botao:active {
+	transform: translateY(1px);
+}
+
+.botao-primario {
+	background: var(--verde);
+	color: var(--branco);
+}
+
+.botao-primario:hover {
+	background: var(--verde-hover);
+}
+
+.botao-primario:active {
+	background: var(--verde-pressionado);
+}
+
+.botao-secundario {
+	background: var(--branco);
+	border-color: var(--verde);
+	color: var(--verde);
+}
+
+.botao-secundario:hover {
+	background: var(--verde-palido);
+}
+
+.botao-secundario:active {
+	background: var(--verde-claro);
+	color: var(--verde-escuro);
+}
+
+.botao-amarelo {
+	background: var(--amarelo);
+	color: var(--verde-escuro);
+}
+
+.botao-amarelo:hover {
+	background: var(--amarelo-hover);
+}
+
+.botao-amarelo:active {
+	background: var(--amarelo-pressionado);
+}
+
+.botao:disabled {
+	background: var(--borda);
+	border-color: transparent;
+	color: var(--texto-suave);
+	opacity: 1;
+	transform: none;
+}
+
+/* Mostrar só no celular / só no desktop. */
+.apenas-mobile {
+	display: none !important;
+}
+
+.aviso-ilustrativo {
+	color: var(--texto-suave);
+	font-size: 12px;
+}
+
+/* ---------- Cartões (painéis brancos) ---------- */
+#form-lancamento, .como-fica-salvo, .painel-categorias, .painel-distribuicao {
+	border-radius: var(--raio);
+	background: var(--branco);
+	box-shadow: var(--sombra);
+}
+
+/* ---------- Formulários ---------- */
+.campo {
+	min-width: 0;
+}
+
+.campo > label, .campo > legend, fieldset > legend {
+	display: block;
+	margin-bottom: 7px;
+	font-size: 14px;
+	color: var(--texto);
+	font-weight: 700;
+}
+
+fieldset {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+input:not([type='radio']):not([type='range']), select, textarea {
+	width: 100%;
+	min-width: 0;
+	min-height: 51px;
+	padding: 12px 16px;
+	color: var(--texto);
+	background: var(--branco);
+	border: 2px solid var(--borda);
+	border-radius: 12px;
+	outline: none;
+	transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+input:not([type='radio']):not([type='range']):hover, select:hover, textarea:hover {
+	border-color: #c9d6cf;
+}
+
+input:not([type='radio']):not([type='range']):focus, select:focus, textarea:focus {
+	border-color: var(--verde);
+	box-shadow: 0 0 0 3px rgb(14 122 84 / 12%);
+}
+
+input::placeholder {
+	color: #87968f;
+}
+
+/* Erro só depois que a pessoa mexe no campo (e não em campos vazios ainda intocados). */
+input:user-invalid, select:user-invalid {
+	border-color: var(--erro);
+}
+
+.campo > small {
+	display: block;
+	margin-top: 7px;
+	font-size: 11px;
+}
+
+select {
+	appearance: none;
+	padding-right: 44px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2366756e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+	background-position: right 15px center;
+	background-repeat: no-repeat;
+}
+
+/* Botões de opção em forma de "chip" (categorias) e seletor de tipo. */
+.grupo-opcoes {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.grupo-opcoes > legend {
+	width: 100%;
+}
+
+.grupo-opcoes .opcao {
+	position: relative;
+	display: inline-flex;
+	cursor: pointer;
+}
+
+.grupo-opcoes .opcao input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.grupo-opcoes .opcao span {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 7px;
+	min-height: 38px;
+	padding: 7px 15px;
+	border-radius: 30px;
+	background: var(--verde-palido);
+	color: var(--verde);
+	font-size: 13px;
+	font-weight: 800;
+	transition: background-color .15s ease, color .15s ease;
+}
+
+.grupo-opcoes .opcao:hover input:not(:checked) + span {
+	background: var(--verde-claro);
+}
+
+.grupo-opcoes .opcao input:checked + span {
+	background: var(--verde);
+	color: var(--branco);
+}
+
+.grupo-opcoes .opcao input:focus-visible + span {
+	outline: 3px solid var(--amarelo);
+	outline-offset: 3px;
+}
+
+.controle-tipo {
+	position: relative;
+	display: inline-flex;
+	width: fit-content;
+	max-width: 100%;
+	gap: 0;
+	padding: 4px;
+	border-radius: 40px;
+	background: var(--verde-palido);
+}
+
+.controle-tipo legend {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.controle-tipo .opcao span {
+	min-width: 89px;
+	background: transparent;
+	border-radius: 24px;
+}
+
+.controle-tipo .opcao:hover input:not(:checked) + span {
+	background: rgb(143 220 180 / 45%);
+}
+
+.controle-tipo .opcao input:checked + span {
+	background: var(--verde);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 22px max(40px, calc((100vw - var(--largura)) / 2));
+	border-top: 1px solid var(--borda);
+	background: var(--branco);
+}
+
+.rodape .logo {
+	font-size: 18px;
+}
+
+.rodape .logo::before {
+	width: 22px;
+	height: 25px;
+}
+
+.rodape > p:last-child {
+	margin: 0;
+	color: var(--texto-suave);
+	font-size: 12px;
+}
+
+/* ---------- Celular (Figma: 360 px) ---------- */
+@media (max-width: 720px) {
+	body {
+		font-size: 15px;
+		padding-bottom: calc(75px + env(safe-area-inset-bottom));
+	}
+	.cabecalho {
+		height: 52px;
+		padding: 0 16px;
+		border-bottom: 0;
+	}
+	.cabecalho .logo {
+		font-size: 20px;
+	}
+	.cabecalho .logo::before {
+		width: 24px;
+		height: 28px;
+	}
+
+	/* Menu vira barra fixa embaixo, com ícones (ordem do Figma: Início, Histórico, Registrar, Dívidas, Metas). */
+	.menu {
+		position: fixed;
+		inset: auto 0 0;
+		z-index: 100;
+		height: calc(67px + env(safe-area-inset-bottom));
+		padding-bottom: env(safe-area-inset-bottom);
+		border-top: 1px solid var(--borda);
+		background: var(--branco);
+		box-shadow: 0 -2px 12px rgb(0 0 0 / 3%);
+	}
+	.menu ul {
+		display: flex;
+		width: 100%;
+		height: 67px;
+		gap: 0;
+	}
+	.menu li {
+		min-width: 0;
+		flex: 1;
+	}
+	.menu li:nth-child(1) { order: 1; }
+	.menu li:nth-child(3) { order: 2; }
+	.menu li:nth-child(2) { order: 3; }
+	.menu li:nth-child(4) { order: 4; }
+	.menu li:nth-child(5) { order: 5; }
+	.menu a {
+		flex-direction: column;
+		gap: 3px;
+		width: calc(100% - 4px);
+		height: 60px;
+		min-height: 0;
+		margin: 3px 2px;
+		padding: 6px 1px 4px;
+		border-radius: 13px;
+		color: var(--texto-suave);
+		font-size: 11px;
+		font-weight: 700;
+	}
+	.menu a::before {
+		content: '';
+		display: block;
+		width: 22px;
+		height: 22px;
+		flex-shrink: 0;
+		background: currentColor;
+		mask: var(--icone) center / contain no-repeat;
+		-webkit-mask: var(--icone) center / contain no-repeat;
+	}
+	.menu a[aria-current='page'] {
+		color: var(--verde);
+	}
+	.menu a[href='index.html'] {
+		--icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E");
+	}
+	.menu a[href='historico.html'] {
+		--icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01'/%3E%3C/svg%3E");
+	}
+	.menu a[href='registrar.html'] {
+		--icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 4v16M4 12h16' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");
+	}
+	.menu a[href='dividas.html'] {
+		--icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='18' rx='2'/%3E%3Cpath d='M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01'/%3E%3C/svg%3E");
+	}
+	.menu a[href='metas.html'] {
+		--icone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3C/svg%3E");
+	}
+
+	.apenas-desktop {
+		display: none !important;
+	}
+	.apenas-mobile {
+		display: block !important;
+	}
+	.botao-flutuante.apenas-mobile, button.apenas-mobile {
+		display: flex !important;
+	}
+
+	/* O Figma reserva o rodapé completo para a página inicial. */
+	.rodape {
+		display: none;
+	}
+	body:has(.secao-inicio) .rodape {
+		display: block;
+		padding: 18px 16px;
+	}
+	.rodape > p:last-child {
+		margin-top: 8px;
+	}
+	.botao {
+		min-height: 51px;
+	}
+	.campo > label, .campo > legend, fieldset > legend {
+		font-size: 14px;
+	}
+	input:not([type='radio']):not([type='range']), select, textarea {
+		min-height: 54px;
+	}
+}
+
+@media (max-width: 370px) {
+	.menu a {
+		font-size: 10px;
+	}
+	.menu a::before {
+		width: 21px;
+		height: 21px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*, *::before, *::after {
+		transition: none !important;
+		animation: none !important;
+	}
+}
