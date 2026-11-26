@@ -6,7 +6,7 @@ O **PagueLeve** é uma aplicação web que ajuda pessoas a organizar seus lança
 
 ## Acesse o projeto
 
-- **Aplicação publicada (GitHub Pages):** [Github Pages](https://silassilva123.github.io/PagueLeve-Seed-a-Bit-Desafio-2/)
+- **Aplicação publicada:** [Github Pages](https://silassilva123.github.io/PagueLeve-Seed-a-Bit-Desafio-2/)
 - **Código-fonte:** [Repositório no GitHub](https://github.com/SilasSilva123/Seed-a-Bit---Desafio-2-PagueLeve-).
 - **Protótipo:** [PagueLeve no Figma](https://www.figma.com/design/GpYvaAhcKPEa2miWlQFVbg/Prototipa%C3%A7%C3%A3o?node-id=0-1).
 
