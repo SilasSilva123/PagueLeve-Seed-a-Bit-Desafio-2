@@ -337,9 +337,10 @@
    REGISTRAR: formulário (700 px) + quadro "Como fica salvo" (476 px)
    ========================================================= */
 .secao-registrar {
-	display: grid;
-	grid-template-columns: minmax(0, 7fr) minmax(0, 4.76fr);
-	gap: 0 22px;
+	display: flex;
+	flex-direction: column;
+	width: min(1080px, calc(100% - 80px));
+	margin: 24px auto 28px;
 }
 
 .secao-registrar > h1, .secao-registrar > p {

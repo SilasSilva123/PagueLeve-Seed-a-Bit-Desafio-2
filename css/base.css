@@ -47,6 +47,9 @@ html {
 }
 
 body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 	min-width: 320px;
 	margin: 0;
 	color: var(--texto);
@@ -433,6 +436,7 @@ select {
 
 /* ---------- Rodapé ---------- */
 .rodape {
+	margin-top: auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
