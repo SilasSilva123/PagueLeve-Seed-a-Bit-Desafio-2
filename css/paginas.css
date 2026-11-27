@@ -337,9 +337,10 @@
    REGISTRAR: formulário (700 px) + quadro "Como fica salvo" (476 px)
    ========================================================= */
 .secao-registrar {
-	display: grid;
-	grid-template-columns: minmax(0, 7fr) minmax(0, 4.76fr);
-	gap: 0 22px;
+	display: flex;
+	flex-direction: column;
+	width: min(1080px, calc(100% - 80px));
+	margin: 24px auto 28px;
 }
 
 .secao-registrar > h1, .secao-registrar > p {
@@ -413,45 +414,6 @@
 	flex-wrap: wrap;
 	gap: 10px;
 }
-
-.como-fica-salvo {
-	min-height: 490px;
-	padding: 24px;
-}
-
-.como-fica-salvo h2 {
-	margin-bottom: 12px;
-	font-size: 23px;
-}
-
-.como-fica-salvo p {
-	color: var(--texto-suave);
-	font-size: 13px;
-}
-
-.como-fica-salvo ul {
-	margin: 18px 0 0;
-	padding: 16px;
-	border-radius: 14px;
-	background: var(--verde-escuro);
-	list-style: none;
-}
-
-.como-fica-salvo li {
-	padding: 6px 0;
-	color: #c0e0d2;
-	font: 13px/1.4 ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-}
-
-.como-fica-salvo code {
-	font: inherit;
-	color: var(--verde-claro);
-}
-
-.como-fica-salvo code::after {
-	content: ':';
-}
-
 /* =========================================================
    HISTÓRICO: tabela no desktop; cartões no celular
    ========================================================= */
